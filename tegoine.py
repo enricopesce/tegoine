@@ -1,5 +1,6 @@
-import boto3
 import sys
+import boto3
+
 
 stack_names = []
 argument = sys.argv[1]
@@ -7,7 +8,7 @@ argument = sys.argv[1]
 client = boto3.client('cloudformation')
 paginator = client.get_paginator('list_stacks')
 response_iterator = paginator.paginate(StackStatusFilter=[
-        'CREATE_IN_PROGRESS', 
+        'CREATE_IN_PROGRESS',
         'CREATE_FAILED',
         'CREATE_COMPLETE',
         'ROLLBACK_IN_PROGRESS',
